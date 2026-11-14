@@ -154,6 +154,9 @@ def regression():
     assert result['rows'] == [[0], [6], [21]]
     assert result['columns'] == ['total']
     assert result['trace'] == [['scan', 'counters']] + [['subquery', 'scalar']] * 21
+    # Structural boundary probes: exact imports, plan sharing, JSON detachment.
+    import boundary_checks
+    boundary_checks.regression()
     print('BUSINESS_REGRESSION_OK')
 
 
